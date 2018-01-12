@@ -2,9 +2,11 @@ package zx.com.smallicon;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import zx.com.smallicon.utils.AppShortCutUtil;
 
@@ -15,8 +17,18 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        addNumShortCut(this, MainActivity.class, true, "8", true);
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        //addNumShortCut(this, MainActivity.class, true, "8", true);
+
     }
+
     public static void addNumShortCut(Context context, Class<?> clazz, boolean isShowNum, String num, boolean isStroke) {
         Log.e("TAG", "manufacturer=" + Build.MANUFACTURER);
         if (Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
