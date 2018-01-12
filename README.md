@@ -1,2 +1,2 @@
 # DesktopSmallIconView
- android 桌面 未读角标
+ android 仿QQ拖拽小图标
